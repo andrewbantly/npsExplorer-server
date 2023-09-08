@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 	res.json({ msg: 'welcome to the users endpoint' })
 })
 
-//GET /api - get api endpoint
+//GET /api - get NPS data from api endpoint
 router.get("/nps", async (req, res) => {
 	const npsData = await axios.get(`https://developer.nps.gov/api/v1/parks?limit=469&api_key=${process.env.NPS_API_KEY}`)
 	// console.log(npsData.data)

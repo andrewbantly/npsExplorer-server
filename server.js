@@ -26,7 +26,7 @@ app.use('/api-v1/experiences', require('./controllers/api-v1/experiences.js'))
 // hey listen
 app.listen(PORT, () => {
     rowdyResults.print()
-    console.log(`is that port ${PORT} I hear? 🙉`)
+    console.log(`🌲 NPS Explorer running on port: ${PORT}`)
 })
 
 
