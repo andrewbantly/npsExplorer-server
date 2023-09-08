@@ -55,7 +55,7 @@ router.post('/:userId', authLockedRoute, async (req, res) => {
         res.locals.user.experiences.push(createExperience._id);
         await res.locals.user.save();
         res.json({
-            msg: "transcation worked"
+            msg: "transaction worked"
         })
     } catch (error) {
         console.log(error)
