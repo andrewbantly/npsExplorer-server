@@ -14,8 +14,6 @@ router.get('/', (req, res) => {
 //GET /api - get NPS data from api endpoint
 router.get("/nps", async (req, res) => {
 	const npsData = await axios.get(`https://developer.nps.gov/api/v1/parks?limit=469&api_key=${process.env.NPS_API_KEY}`)
-	// console.log(npsData.data)
-
 	res.json(npsData.data)
 })
 
@@ -106,15 +104,12 @@ router.post('/login', async (req, res) => {
 
 // GET /auth-locked - will redirect if bad jwt token is found
 router.get('/auth-locked', authLockedRoute, (req, res) => {
-	// use res.locals.user here to do authorization stuff
-	// res.json({ msg: 'welcome to the private route!' })
 	res.json({ msg: res.locals.user.image})
 })
 
 
 // PUT - update user profile image
 router.put('/auth-locked', authLockedRoute, async (req, res) => {
-	console.log('logged in user:', res.locals.user._id)
 	newImageURL = req.body.image
 	try {
 		await db.User.findByIdAndUpdate({
